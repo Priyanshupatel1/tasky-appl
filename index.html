@@ -19,13 +19,13 @@
 <body>
   <!-- Modal for ui dsiplay on homepage -->
   <div class="modal fade" id="showTask" tabindex="-1" aria-labelledby="showTaskLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="showTaskLabel">Task details</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body task__modal__body">
+        <div class="modal-body task__content">
           <!-- <p>js text</p> -->
         </div>
         <div class="modal-footer">
@@ -35,11 +35,30 @@
       </div>
     </div>
   </div>
+  <!-- open task button model-->
+  <div class="modal fade" id="showTask" tabindex="-1" aria-labelledby="showTaskLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="showTaskLabel">Task details</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body task__content">
+          <!-- <p>js text</p> -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- button on smallet scrn -->
 
   <div class="add__new__button__mobile__only">
     <button class="btn btn-primary d-flex align-items-center gap-2" type="button" data-bs-toggle="modal"
-      data-bs-target="#addNewModal">
+      data-bs-target="#addNewModal" >
       <i class="fas fa-plus"></i>Add an item
     </button>
   </div>
@@ -115,21 +134,21 @@
 
 
               <div class="mb-3">
-                <label for="task-title" class="form-label">Task-tittle</label>
-                <input type="text" class="form-control" id="task-title" placeholder="enter your task title" required />
+                <label for="taskTitle" class="form-label">Task-tittle</label>
+                <input type="text" class="form-control" id="taskTitle" placeholder="enter your task title" required />
               </div>
               <div class="mb-3">
-                <label for="task-type" class="form-label">task type</label>
-                <input type="text" class="form-control" id="task-type" placeholder="enter the type of task" required />
+                <label for="taskType" class="form-label">task type</label>
+                <input type="text" class="form-control" id="taskType" placeholder="enter the type of task" required />
               </div>
               <div class="mb-3">
-                <label for="task-desc" class="form-label">task description</label>
+                <label for="taskDescription" class="form-label">task description</label>
                 <!-- text area text description wala box hota hai and required wala batane ke lie ki required hai read only ,read bhi hhota-->
-                <textarea class="form-control" id="task-desc" placeholder="enter the of task description" required
+                <textarea class="form-control" id="taskDescription" placeholder="enter the of task description" required
                   rows="4"></textarea>
               </div>
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Save changes</button>
+              <button type="submit" class="btn btn-primary" onclick="handleSubmit()" >Save changes</button>
           </form>
         </div>
 
