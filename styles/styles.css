@@ -13,8 +13,8 @@ body{
     padding: 15px 10px;
     z-index: 3;/*ek ke upr ek*/
 }
-@media(min-width:700px){
+/* @media(min-width:700px){
     .add__new__button__mobile__only{
         display: none;
     }
-}
+} */
