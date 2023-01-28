@@ -38,7 +38,7 @@ const htmlTaskContent=({id,title,description,type,url})=>`
         data-bs-toggle='modal'
         data-bs-target='#showTask'
         id=${id}
-        onclick='openTask.apply(this, arguments)'>
+        onClick='openTask.apply(this, arguments)'>
           Open Task
         </button>
       </div>
@@ -117,5 +117,5 @@ const deleteTask = (e) => {
 const type=e.target.tagName;
      //console.log(type);
      const removeTask = state.taskList.filter(({id})=>  id !== targetID );
-     //console.log(removeTask);
+     console.log(removeTask);
 }; 
