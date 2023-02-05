@@ -19,39 +19,24 @@
 
 <body onload="loadInitialData()">
   <!-- Modal for UI Display On Home pg -->
-  <div
-  class="modal fade"
-  id="showTask"
-  tabindex="-1"
-  aria-labelledby="showTaskLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title" id="showTaskLabel">Task Details</h1>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body task__modal__body">
-        <!-- <p>js txt</p> -->
-      </div>
-      <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-secondary"
-          data-bs-dismiss="modal"
-        >
-          Close
-        </button>
+  <div class="modal fade" id="showTask" tabindex="-1" aria-labelledby="showTaskLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title" id="showTaskLabel">Task Details</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body task__modal__body">
+          <!-- <p>js txt</p> -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
   <!-- open task button model
   <div class="modal fade" id="showTask" tabindex="-1" aria-labelledby="showTaskLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -75,7 +60,7 @@
 
   <div class="add__new__button__mobile__only d-md-none">
     <button class="btn btn-primary d-flex align-items-center gap-2" type="submit" data-bs-toggle="modal"
-      data-bs-target="#addNewModal" >
+      data-bs-target="#addNewModal">
       <i class="fas fa-plus"></i>Add new
     </button>
   </div>
@@ -95,30 +80,27 @@
           </li>
         </ul>
         <!-- <form class="d-flex" role="search"> -->
-          <button class="btn btn-primary d-flex align-items-center gap-2" type="button" data-bs-toggle="modal"
-            data-bs-target="#addNewModal">
-            <i class="fas fa-plus"></i>
-            Add an item
-          </button>
+        <button class="btn btn-primary d-flex align-items-center gap-2" type="button" data-bs-toggle="modal"
+          data-bs-target="#addNewModal">
+          <i class="fas fa-plus"></i>
+          Add an item
+        </button>
         </form>
       </div>
     </div>
   </nav>
 
-   <!-- entire body - search i/p with display cards -->
-   <div class="container">
+  <!-- entire body - search i/p with display cards -->
+  <div class="container">
     <!-- Content here -->
     <section class="mt-4">
       <div class="row justify-content-center">
         <div class="col-md-6">
           <div class="input-group flex-nowrap shadow-lg rounded">
-            <input
-              type="search"
-              class="form-control"
-              placeholder="Search Task"
-              aria-label="Search Task"
-              aria-describedby="addon-wrapping"
-            />
+            <input type="search" class="form-control" placeholder="Search Task" aria-label="Search Task"
+              aria-describedby="addon-wrapping" 
+              oninput="searchTask.apply(this,arguments)"/>
+              
             <span class="input-group-text" id="addon-wrapper">
               <i class="fas fa-search"></i>
             </span>
@@ -172,102 +154,55 @@
                   rows="4"></textarea>
               </div>
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary" onclick="handleSubmit()" >Save changes</button>
+              <button type="submit" class="btn btn-primary" onclick="handleSubmit()">Save changes</button>
           </form>
         </div>
 
       </div>
     </div>
-  </div>  <!-- Btn which should be displayed on smaller screen -->
+  </div> <!-- Btn which should be displayed on smaller screen -->
   <div class="add__new__btn__mobile__only d-md-none">
-    <button
-      class="btn btn-primary d-flex align-items-center gap-2"
-      type="submit"
-      data-bs-toggle="modal"
-      data-bs-target="#addNewModal"
-    >
+    <button class="btn btn-primary d-flex align-items-center gap-2" type="submit" data-bs-toggle="modal"
+      data-bs-target="#addNewModal">
       <i class="fas fa-plus"></i>Add New
     </button>
   </div>
 
   <!-- too add new modal on click of add an item btn -->
-  <div
-    class="modal fade"
-    id="addNewModal"
-    tabindex="-1"
-    aria-labelledby="addNewModalLabel"
-    aria-hidden="true"
-  >
+  <div class="modal fade" id="addNewModal" tabindex="-1" aria-labelledby="addNewModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="addNewModalLabel">Add New Task</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form onsubmit="return false">
             <div class="mb-3">
               <label for="imageUrl" class="form-label">Image URL</label>
-              <input
-                type="url"
-                class="form-control"
-                id="imageUrl"
-                placeholder="http://emample.com/image.png"
-              />
+              <input type="url" class="form-control" id="imageUrl" placeholder="http://emample.com/image.png" />
             </div>
             <div class="mb-3">
               <label for="taskTitle" class="form-label">Task Title</label>
-              <input
-                type="text"
-                class="form-control"
-                id="taskTitle"
-                placeholder="Learn Web Dev"
-                required
-              />
+              <input type="text" class="form-control" id="taskTitle" placeholder="Learn Web Dev" required />
             </div>
             <div class="mb-3">
               <label for="tags" class="form-label">Task Type</label>
-              <input
-                type="text"
-                class="form-control"
-                id="tags"
-                placeholder="Work..."
-                required
-              />
+              <input type="text" class="form-control" id="tags" placeholder="Work..." required />
             </div>
             <div class="mb-3">
-              <label for="taskDescription" class="form-label"
-                >Task Description</label
-              >
-              <textarea
-                class="form-control"
-                id="taskDescription"
-                placeholder="Explain something about it..."
-                rows="4"
-                required
-              ></textarea>
+              <label for="taskDescription" class="form-label">Task Description</label>
+              <textarea class="form-control" id="taskDescription" placeholder="Explain something about it..." rows="4"
+                required></textarea>
             </div>
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
               Close
             </button>
-            <button
-              type="submit"
-              class="btn btn-primary"
-              onclick="handleSubmit()"
-            >
+            <button type="submit" class="btn btn-primary" onclick="handleSubmit()">
               Save changes
             </button>
           </form>
-        </div>
+        </div> 
       </div>
     </div>
   </div>
